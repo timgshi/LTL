@@ -98,4 +98,32 @@
     [super updateConstraints];
 }
 
+- (void)prepareForReuse {
+    [super prepareForReuse];
+    self.addressLabel.text = nil;
+    self.timeLabel.text = nil;
+}
+
+- (void)setTrip:(LTLTrip *)trip {
+    _trip = trip;
+    
+    static NSDateFormatter *dateFormatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        dateFormatter = [NSDateFormatter new];
+        [dateFormatter setDateStyle:NSDateFormatterNoStyle];
+        [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+    });
+    
+    if (trip) {
+        NSInteger minutes = [trip.endDate timeIntervalSinceDate:trip.startDate] / 60;
+        
+        self.addressLabel.text = [NSString stringWithFormat:@"%@ > %@", trip.startAddress, trip.endAddress];
+        self.timeLabel.text = [NSString stringWithFormat:@"%@-%@ (%lumin)",
+                               [dateFormatter stringFromDate:trip.startDate],
+                               [dateFormatter stringFromDate:trip.endDate],
+                               minutes];
+    }
+}
+
 @end

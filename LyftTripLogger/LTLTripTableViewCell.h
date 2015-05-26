@@ -12,6 +12,8 @@
 
 @interface LTLTripTableViewCell : UITableViewCell
 
+@property (nonatomic, strong) LTLTrip *trip;
+
 + (NSString *)defaultIdentifier;
 + (void)registerWithTableView:(UITableView *)tableView;
 + (CGFloat)heightWithTrip:(LTLTrip *)trip inTableView:(UITableView *)tableView;
