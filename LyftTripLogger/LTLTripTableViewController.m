@@ -20,6 +20,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.tableView.rowHeight = UITableViewAutomaticDimension;
+    self.tableView.estimatedRowHeight = 44;
+    
     [LTLTripTableViewCell registerWithTableView:self.tableView];
     
     self.fetchedResultsController = [LTLTrip allSortedTripsController];
@@ -31,9 +34,9 @@
     return cell;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    LTLTrip *trip = [self.fetchedResultsController objectAtIndexPath:indexPath];
-    return [LTLTripTableViewCell heightWithTrip:trip inTableView:tableView];
-}
+//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+//    LTLTrip *trip = [self.fetchedResultsController objectAtIndexPath:indexPath];
+//    return [LTLTripTableViewCell heightWithTrip:trip inTableView:tableView];
+//}
 
 @end

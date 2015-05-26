@@ -31,6 +31,14 @@
 }
 
 + (CGFloat)heightWithTrip:(LTLTrip *)trip inTableView:(UITableView *)tableView {
+    static LTLTripTableViewCell *sizingCell = nil;
+    static UITableView *sizingTableView = nil;
+    if (sizingTableView != tableView) {
+        sizingTableView = tableView;
+        sizingCell = [tableView dequeueReusableCellWithIdentifier:[self defaultIdentifier]];
+    }
+    sizingCell.trip = trip;
+    [sizingCell setNeedsLayout];
     return 0;
 }
 
