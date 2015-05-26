@@ -8,6 +8,9 @@
 
 #import "LTLTripTableViewController.h"
 
+#import "LTLTrip.h"
+#import "LTLTripTableViewCell.h"
+
 @interface LTLTripTableViewController ()
 
 @end
@@ -16,22 +19,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
+    
+    [LTLTripTableViewCell registerWithTableView:self.tableView];
+    
+    self.fetchedResultsController = [LTLTrip allSortedTripsController];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    LTLTripTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:[LTLTripTableViewCell defaultIdentifier]];
+    cell.trip = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    return cell;
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    LTLTrip *trip = [self.fetchedResultsController objectAtIndexPath:indexPath];
+    return [LTLTripTableViewCell heightWithTrip:trip inTableView:tableView];
 }
-*/
 
 @end
