@@ -15,6 +15,9 @@
 		4BF6D9771B15345E00BC4146 /* LyftTripLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D9761B15345E00BC4146 /* LyftTripLoggerTests.m */; };
 		4BF6D9821B15358400BC4146 /* LyftTripLogger.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D9801B15358400BC4146 /* LyftTripLogger.xcdatamodeld */; };
 		4BF6D9851B1535E900BC4146 /* LTLTrip.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D9841B1535E900BC4146 /* LTLTrip.m */; };
+		4BF6D9891B15365D00BC4146 /* CoreDataTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D9881B15365D00BC4146 /* CoreDataTableViewController.m */; };
+		4BF6D98C1B15367B00BC4146 /* LTLTripTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D98B1B15367B00BC4146 /* LTLTripTableViewController.m */; };
+		4BF6D98F1B15368900BC4146 /* LTLTripTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D98E1B15368900BC4146 /* LTLTripTableViewCell.m */; };
 		6EB2D5FCC0F7E8D3AF285148 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED4B94C4C7301622AE83511 /* libPods.a */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +47,12 @@
 		4BF6D9811B15358400BC4146 /* LyftTripLogger.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = LyftTripLogger.xcdatamodel; sourceTree = "<group>"; };
 		4BF6D9831B1535E900BC4146 /* LTLTrip.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLTrip.h; sourceTree = "<group>"; };
 		4BF6D9841B1535E900BC4146 /* LTLTrip.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLTrip.m; sourceTree = "<group>"; };
+		4BF6D9871B15365D00BC4146 /* CoreDataTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataTableViewController.h; sourceTree = "<group>"; };
+		4BF6D9881B15365D00BC4146 /* CoreDataTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataTableViewController.m; sourceTree = "<group>"; };
+		4BF6D98A1B15367B00BC4146 /* LTLTripTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLTripTableViewController.h; sourceTree = "<group>"; };
+		4BF6D98B1B15367B00BC4146 /* LTLTripTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLTripTableViewController.m; sourceTree = "<group>"; };
+		4BF6D98D1B15368900BC4146 /* LTLTripTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLTripTableViewCell.h; sourceTree = "<group>"; };
+		4BF6D98E1B15368900BC4146 /* LTLTripTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLTripTableViewCell.m; sourceTree = "<group>"; };
 		6C981C0F549B783B5E41E260 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		C0E6CA4F0DA75B0818822F0B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -101,6 +110,12 @@
 			children = (
 				4BF6D95E1B15345E00BC4146 /* AppDelegate.h */,
 				4BF6D95F1B15345E00BC4146 /* AppDelegate.m */,
+				4BF6D9871B15365D00BC4146 /* CoreDataTableViewController.h */,
+				4BF6D9881B15365D00BC4146 /* CoreDataTableViewController.m */,
+				4BF6D98A1B15367B00BC4146 /* LTLTripTableViewController.h */,
+				4BF6D98B1B15367B00BC4146 /* LTLTripTableViewController.m */,
+				4BF6D98D1B15368900BC4146 /* LTLTripTableViewCell.h */,
+				4BF6D98E1B15368900BC4146 /* LTLTripTableViewCell.m */,
 				4BF6D9641B15345E00BC4146 /* Main.storyboard */,
 				4BF6D9671B15345E00BC4146 /* Images.xcassets */,
 				4BF6D9691B15345E00BC4146 /* LaunchScreen.xib */,
@@ -290,10 +305,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4BF6D98F1B15368900BC4146 /* LTLTripTableViewCell.m in Sources */,
 				4BF6D9821B15358400BC4146 /* LyftTripLogger.xcdatamodeld in Sources */,
 				4BF6D9601B15345E00BC4146 /* AppDelegate.m in Sources */,
 				4BF6D95D1B15345E00BC4146 /* main.m in Sources */,
 				4BF6D9851B1535E900BC4146 /* LTLTrip.m in Sources */,
+				4BF6D9891B15365D00BC4146 /* CoreDataTableViewController.m in Sources */,
+				4BF6D98C1B15367B00BC4146 /* LTLTripTableViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
