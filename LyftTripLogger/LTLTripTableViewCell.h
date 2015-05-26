@@ -8,6 +8,12 @@
 
 #import <UIKit/UIKit.h>
 
+#import "LTLTrip.h"
+
 @interface LTLTripTableViewCell : UITableViewCell
+
++ (NSString *)defaultIdentifier;
++ (void)registerWithTableView:(UITableView *)tableView;
++ (CGFloat)heightWithTrip:(LTLTrip *)trip inTableView:(UITableView *)tableView;
 
 @end

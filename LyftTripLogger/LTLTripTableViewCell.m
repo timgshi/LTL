@@ -8,16 +8,64 @@
 
 #import "LTLTripTableViewCell.h"
 
+@interface LTLTripTableViewCell ()
+
+@property (nonatomic, strong) UIImageView *iconImageView;
+@property (nonatomic, strong) UILabel *addressLabel, *timeLabel;
+
+@property (nonatomic) BOOL hasInstalledViewConstraints;
+
+@end
+
 @implementation LTLTripTableViewCell
 
-- (void)awakeFromNib {
-    // Initialization code
++ (NSString *)defaultIdentifier {
+    static NSString * const LTLTripTableViewCellIdentifier = @"LTLTripTableViewCellIdentifier";
+    return LTLTripTableViewCellIdentifier;
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
++ (void)registerWithTableView:(UITableView *)tableView {
+    [tableView registerClass:self forCellReuseIdentifier:[self defaultIdentifier]];
+}
 
-    // Configure the view for the selected state
++ (CGFloat)heightWithTrip:(LTLTrip *)trip inTableView:(UITableView *)tableView {
+    return 0;
+}
+
+- (instancetype)initWithFrame:(CGRect)frame {
+    self = [super initWithFrame:frame];
+    if (self) {
+        [self setupViews];
+    }
+    return self;
+}
+
+- (void)setupViews {
+    
+    const CGFloat kAddressLabelFontSize = 14;
+    const CGFloat kTimeLabelFontSize = 12;
+    
+    self.iconImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"icon_car"]];
+    self.iconImageView.contentMode = UIViewContentModeScaleAspectFill;
+    [self.contentView addSubview:self.iconImageView];
+    
+    self.addressLabel = [UILabel new];
+    self.addressLabel.font = [UIFont boldSystemFontOfSize:kAddressLabelFontSize];
+    self.addressLabel.numberOfLines = 0;
+    [self.contentView addSubview:self.addressLabel];
+    
+    self.timeLabel = [UILabel new];
+    self.timeLabel.font = [UIFont italicSystemFontOfSize:kTimeLabelFontSize];
+    self.timeLabel.numberOfLines = 0;
+    [self.contentView addSubview:self.timeLabel];
+}
+
+- (void)updateConstraints {
+    if (!self.hasInstalledViewConstraints) {
+        self.hasInstalledViewConstraints = YES;
+    }
+    
+    [super updateConstraints];
 }
 
 @end
