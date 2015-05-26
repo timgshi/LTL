@@ -8,6 +8,8 @@
 
 #import "LTLTripTableViewCell.h"
 
+#import <Masonry/Masonry.h>
+
 @interface LTLTripTableViewCell ()
 
 @property (nonatomic, strong) UIImageView *iconImageView;
@@ -58,11 +60,39 @@
     self.timeLabel.font = [UIFont italicSystemFontOfSize:kTimeLabelFontSize];
     self.timeLabel.numberOfLines = 0;
     [self.contentView addSubview:self.timeLabel];
+    
+    [self setNeedsUpdateConstraints];
 }
 
 - (void)updateConstraints {
     if (!self.hasInstalledViewConstraints) {
         self.hasInstalledViewConstraints = YES;
+        
+        const CGFloat kHorizontalMargin = 15;
+        const CGFloat kVerticalMargin = 5;
+        
+        [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.contentView.mas_left).with.offset(kHorizontalMargin);
+            make.top.equalTo(self.contentView.mas_top).with.offset(kVerticalMargin);
+        }];
+        
+        [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.iconImageView.mas_right).with.offset(kHorizontalMargin);
+            make.top.equalTo(self.contentView.mas_top).with.offset(kVerticalMargin);
+            make.right.equalTo(self.contentView.mas_right).with.offset(-kHorizontalMargin);
+        }];
+        
+        [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.left.equalTo(self.iconImageView.mas_right).with.offset(kHorizontalMargin);
+            make.top.equalTo(self.timeLabel.mas_bottom).with.offset(kVerticalMargin);
+            make.right.equalTo(self.contentView.mas_right).with.offset(-kHorizontalMargin);
+            make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-kVerticalMargin);
+        }];
+        
+        [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.top.equalTo(self.addressLabel.mas_top).with.offset(-kVerticalMargin);
+            make.bottom.equalTo(self.timeLabel.mas_bottom).with.offset(kVerticalMargin);
+        }];
     }
     
     [super updateConstraints];
