@@ -1,0 +1,429 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4BF6D95D1B15345E00BC4146 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D95C1B15345E00BC4146 /* main.m */; };
+		4BF6D9601B15345E00BC4146 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D95F1B15345E00BC4146 /* AppDelegate.m */; };
+		4BF6D9631B15345E00BC4146 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D9621B15345E00BC4146 /* ViewController.m */; };
+		4BF6D9661B15345E00BC4146 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4BF6D9641B15345E00BC4146 /* Main.storyboard */; };
+		4BF6D9681B15345E00BC4146 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4BF6D9671B15345E00BC4146 /* Images.xcassets */; };
+		4BF6D96B1B15345E00BC4146 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4BF6D9691B15345E00BC4146 /* LaunchScreen.xib */; };
+		4BF6D9771B15345E00BC4146 /* LyftTripLoggerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D9761B15345E00BC4146 /* LyftTripLoggerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4BF6D9711B15345E00BC4146 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4BF6D94F1B15345D00BC4146 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4BF6D9561B15345E00BC4146;
+			remoteInfo = LyftTripLogger;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4BF6D9571B15345E00BC4146 /* LyftTripLogger.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LyftTripLogger.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BF6D95B1B15345E00BC4146 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BF6D95C1B15345E00BC4146 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4BF6D95E1B15345E00BC4146 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		4BF6D95F1B15345E00BC4146 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		4BF6D9611B15345E00BC4146 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		4BF6D9621B15345E00BC4146 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4BF6D9651B15345E00BC4146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		4BF6D9671B15345E00BC4146 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		4BF6D96A1B15345E00BC4146 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
+		4BF6D9701B15345E00BC4146 /* LyftTripLoggerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LyftTripLoggerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4BF6D9751B15345E00BC4146 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4BF6D9761B15345E00BC4146 /* LyftTripLoggerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LyftTripLoggerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4BF6D9541B15345E00BC4146 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BF6D96D1B15345E00BC4146 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4BF6D94E1B15345D00BC4146 = {
+			isa = PBXGroup;
+			children = (
+				4BF6D9591B15345E00BC4146 /* LyftTripLogger */,
+				4BF6D9731B15345E00BC4146 /* LyftTripLoggerTests */,
+				4BF6D9581B15345E00BC4146 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4BF6D9581B15345E00BC4146 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4BF6D9571B15345E00BC4146 /* LyftTripLogger.app */,
+				4BF6D9701B15345E00BC4146 /* LyftTripLoggerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4BF6D9591B15345E00BC4146 /* LyftTripLogger */ = {
+			isa = PBXGroup;
+			children = (
+				4BF6D95E1B15345E00BC4146 /* AppDelegate.h */,
+				4BF6D95F1B15345E00BC4146 /* AppDelegate.m */,
+				4BF6D9611B15345E00BC4146 /* ViewController.h */,
+				4BF6D9621B15345E00BC4146 /* ViewController.m */,
+				4BF6D9641B15345E00BC4146 /* Main.storyboard */,
+				4BF6D9671B15345E00BC4146 /* Images.xcassets */,
+				4BF6D9691B15345E00BC4146 /* LaunchScreen.xib */,
+				4BF6D95A1B15345E00BC4146 /* Supporting Files */,
+			);
+			path = LyftTripLogger;
+			sourceTree = "<group>";
+		};
+		4BF6D95A1B15345E00BC4146 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4BF6D95B1B15345E00BC4146 /* Info.plist */,
+				4BF6D95C1B15345E00BC4146 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4BF6D9731B15345E00BC4146 /* LyftTripLoggerTests */ = {
+			isa = PBXGroup;
+			children = (
+				4BF6D9761B15345E00BC4146 /* LyftTripLoggerTests.m */,
+				4BF6D9741B15345E00BC4146 /* Supporting Files */,
+			);
+			path = LyftTripLoggerTests;
+			sourceTree = "<group>";
+		};
+		4BF6D9741B15345E00BC4146 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4BF6D9751B15345E00BC4146 /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		4BF6D9561B15345E00BC4146 /* LyftTripLogger */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BF6D97A1B15345E00BC4146 /* Build configuration list for PBXNativeTarget "LyftTripLogger" */;
+			buildPhases = (
+				4BF6D9531B15345E00BC4146 /* Sources */,
+				4BF6D9541B15345E00BC4146 /* Frameworks */,
+				4BF6D9551B15345E00BC4146 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = LyftTripLogger;
+			productName = LyftTripLogger;
+			productReference = 4BF6D9571B15345E00BC4146 /* LyftTripLogger.app */;
+			productType = "com.apple.product-type.application";
+		};
+		4BF6D96F1B15345E00BC4146 /* LyftTripLoggerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4BF6D97D1B15345E00BC4146 /* Build configuration list for PBXNativeTarget "LyftTripLoggerTests" */;
+			buildPhases = (
+				4BF6D96C1B15345E00BC4146 /* Sources */,
+				4BF6D96D1B15345E00BC4146 /* Frameworks */,
+				4BF6D96E1B15345E00BC4146 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4BF6D9721B15345E00BC4146 /* PBXTargetDependency */,
+			);
+			name = LyftTripLoggerTests;
+			productName = LyftTripLoggerTests;
+			productReference = 4BF6D9701B15345E00BC4146 /* LyftTripLoggerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4BF6D94F1B15345D00BC4146 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0610;
+				ORGANIZATIONNAME = "Tim Shi";
+				TargetAttributes = {
+					4BF6D9561B15345E00BC4146 = {
+						CreatedOnToolsVersion = 6.1.1;
+					};
+					4BF6D96F1B15345E00BC4146 = {
+						CreatedOnToolsVersion = 6.1.1;
+						TestTargetID = 4BF6D9561B15345E00BC4146;
+					};
+				};
+			};
+			buildConfigurationList = 4BF6D9521B15345D00BC4146 /* Build configuration list for PBXProject "LyftTripLogger" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 4BF6D94E1B15345D00BC4146;
+			productRefGroup = 4BF6D9581B15345E00BC4146 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4BF6D9561B15345E00BC4146 /* LyftTripLogger */,
+				4BF6D96F1B15345E00BC4146 /* LyftTripLoggerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4BF6D9551B15345E00BC4146 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BF6D9661B15345E00BC4146 /* Main.storyboard in Resources */,
+				4BF6D96B1B15345E00BC4146 /* LaunchScreen.xib in Resources */,
+				4BF6D9681B15345E00BC4146 /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BF6D96E1B15345E00BC4146 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4BF6D9531B15345E00BC4146 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BF6D9631B15345E00BC4146 /* ViewController.m in Sources */,
+				4BF6D9601B15345E00BC4146 /* AppDelegate.m in Sources */,
+				4BF6D95D1B15345E00BC4146 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4BF6D96C1B15345E00BC4146 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4BF6D9771B15345E00BC4146 /* LyftTripLoggerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4BF6D9721B15345E00BC4146 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4BF6D9561B15345E00BC4146 /* LyftTripLogger */;
+			targetProxy = 4BF6D9711B15345E00BC4146 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4BF6D9641B15345E00BC4146 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BF6D9651B15345E00BC4146 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		4BF6D9691B15345E00BC4146 /* LaunchScreen.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4BF6D96A1B15345E00BC4146 /* Base */,
+			);
+			name = LaunchScreen.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		4BF6D9781B15345E00BC4146 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		4BF6D9791B15345E00BC4146 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4BF6D97B1B15345E00BC4146 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LyftTripLogger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		4BF6D97C1B15345E00BC4146 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = LyftTripLogger/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		4BF6D97E1B15345E00BC4146 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LyftTripLoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LyftTripLogger.app/LyftTripLogger";
+			};
+			name = Debug;
+		};
+		4BF6D97F1B15345E00BC4146 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = LyftTripLoggerTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/LyftTripLogger.app/LyftTripLogger";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4BF6D9521B15345D00BC4146 /* Build configuration list for PBXProject "LyftTripLogger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BF6D9781B15345E00BC4146 /* Debug */,
+				4BF6D9791B15345E00BC4146 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4BF6D97A1B15345E00BC4146 /* Build configuration list for PBXNativeTarget "LyftTripLogger" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BF6D97B1B15345E00BC4146 /* Debug */,
+				4BF6D97C1B15345E00BC4146 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		4BF6D97D1B15345E00BC4146 /* Build configuration list for PBXNativeTarget "LyftTripLoggerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4BF6D97E1B15345E00BC4146 /* Debug */,
+				4BF6D97F1B15345E00BC4146 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4BF6D94F1B15345D00BC4146 /* Project object */;
+}
