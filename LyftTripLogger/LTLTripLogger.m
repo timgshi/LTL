@@ -8,7 +8,14 @@
 
 #import "LTLTripLogger.h"
 
+#import <CoreLocation/CoreLocation.h>
 #import "LTLConstants.h"
+
+@interface LTLTripLogger () <CLLocationManagerDelegate>
+
+@property (nonatomic, strong) CLLocationManager *locationManager;
+
+@end
 
 @implementation LTLTripLogger
 
@@ -32,6 +39,23 @@
 - (void)setIsLoggingEnabled:(BOOL)isLoggingEnabled {
     [[NSUserDefaults standardUserDefaults] setBool:isLoggingEnabled forKey:LTLTripLoggingKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
+}
+
+- (CLLocationManager *)locationManager {
+    if (!_locationManager) {
+        _locationManager = [CLLocationManager new];
+        [_locationManager requestAlwaysAuthorization];
+        _locationManager.delegate = self;
+    }
+    return _locationManager;
+}
+
+- (void)startLogging {
+    [self.locationManager startUpdatingLocation];
+}
+
+- (void)stopLogging {
+    [self.locationManager stopUpdatingLocation];
 }
 
 @end

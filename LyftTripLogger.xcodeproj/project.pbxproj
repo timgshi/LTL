@@ -22,6 +22,7 @@
 		9AF24DA71B156EEE00DC2797 /* UIColor+LTL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF24DA61B156EEE00DC2797 /* UIColor+LTL.m */; };
 		9AF24DA91B156FCF00DC2797 /* LTLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF24DA81B156FCF00DC2797 /* LTLConstants.m */; };
 		9AF24DAD1B15702800DC2797 /* LTLTripLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF24DAC1B15702800DC2797 /* LTLTripLogger.m */; };
+		9AF24DAF1B15728200DC2797 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AF24DAE1B15728200DC2797 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,7 @@
 		9AF24DAA1B156FDA00DC2797 /* LTLConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTLConstants.h; sourceTree = "<group>"; };
 		9AF24DAB1B15702800DC2797 /* LTLTripLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLTripLogger.h; sourceTree = "<group>"; };
 		9AF24DAC1B15702800DC2797 /* LTLTripLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLTripLogger.m; sourceTree = "<group>"; };
+		9AF24DAE1B15728200DC2797 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 		C0E6CA4F0DA75B0818822F0B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -71,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF24DAF1B15728200DC2797 /* CoreLocation.framework in Frameworks */,
 				6EB2D5FCC0F7E8D3AF285148 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -179,6 +182,7 @@
 		53FEE2ECF16C8E35F99A87D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9AF24DAE1B15728200DC2797 /* CoreLocation.framework */,
 				0ED4B94C4C7301622AE83511 /* libPods.a */,
 			);
 			name = Frameworks;
@@ -236,6 +240,11 @@
 				TargetAttributes = {
 					4BF6D9561B15345E00BC4146 = {
 						CreatedOnToolsVersion = 6.1.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+						};
 					};
 					4BF6D96F1B15345E00BC4146 = {
 						CreatedOnToolsVersion = 6.1.1;
