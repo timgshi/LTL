@@ -10,10 +10,12 @@
 
 #import <CoreLocation/CoreLocation.h>
 #import "LTLConstants.h"
+#import "LTLTrip.h"
 
 @interface LTLTripLogger () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
+@property (nonatomic) BOOL isCurrentlyTracking;
 
 @end
 
@@ -39,6 +41,9 @@
 - (void)setIsLoggingEnabled:(BOOL)isLoggingEnabled {
     [[NSUserDefaults standardUserDefaults] setBool:isLoggingEnabled forKey:LTLTripLoggingKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
+    if (!isLoggingEnabled) {
+        [self stopLogging];
+    }
 }
 
 - (CLLocationManager *)locationManager {
@@ -51,11 +56,31 @@
 }
 
 - (void)startLogging {
-    [self.locationManager startUpdatingLocation];
+    if (self.isLoggingEnabled) {
+        [self.locationManager startUpdatingLocation];
+    }
 }
 
 - (void)stopLogging {
     [self.locationManager stopUpdatingLocation];
+}
+
+#pragma mark - CLLocationManagerDelegate Methods
+
+- (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
+    
+    const CLLocationSpeed kMinSpeed = 4.4704; // 10 MPH
+    
+    CLLocation *location = [locations lastObject];
+    if (self.isCurrentlyTracking) {
+        
+    } else {
+        CLLocationSpeed speed = [location speed];
+        if (speed > kMinSpeed) {
+            self.isCurrentlyTracking = YES;
+            
+        }
+    }
 }
 
 @end
