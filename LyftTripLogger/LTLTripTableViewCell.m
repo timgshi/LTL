@@ -42,8 +42,24 @@
     return 0;
 }
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        [self setupViews];
+    }
+    return self;
+}
+
 - (instancetype)initWithFrame:(CGRect)frame {
     self = [super initWithFrame:frame];
+    if (self) {
+        [self setupViews];
+    }
+    return self;
+}
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+    self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         [self setupViews];
     }
@@ -77,29 +93,34 @@
         self.hasInstalledViewConstraints = YES;
         
         const CGFloat kHorizontalMargin = 15;
-        const CGFloat kVerticalMargin = 5;
+        const CGFloat kTopMargin = 10;
+        const CGFloat kLabelSeparator = 5;
+        const CGFloat kBottomMargin = 5;
+        const CGSize kIconSize = {25, 19};
+        const CGFloat kIconVerticalOffset = 4;
         
         [self.iconImageView mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.contentView.mas_left).with.offset(kHorizontalMargin);
-            make.top.equalTo(self.contentView.mas_top).with.offset(kVerticalMargin);
+            make.top.equalTo(self.contentView.mas_top).with.offset(kTopMargin + kIconVerticalOffset);
+            make.size.equalTo([NSValue valueWithCGSize:kIconSize]);
         }];
         
         [self.addressLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.iconImageView.mas_right).with.offset(kHorizontalMargin);
-            make.top.equalTo(self.contentView.mas_top).with.offset(kVerticalMargin);
+            make.top.equalTo(self.contentView.mas_top).with.offset(kTopMargin);
             make.right.equalTo(self.contentView.mas_right).with.offset(-kHorizontalMargin);
         }];
         
         [self.timeLabel mas_makeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(self.iconImageView.mas_right).with.offset(kHorizontalMargin);
-            make.top.equalTo(self.timeLabel.mas_bottom).with.offset(kVerticalMargin);
+            make.top.equalTo(self.addressLabel.mas_bottom).with.offset(kLabelSeparator);
             make.right.equalTo(self.contentView.mas_right).with.offset(-kHorizontalMargin);
-            make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-kVerticalMargin);
+            make.bottom.equalTo(self.contentView.mas_bottom).with.offset(-kBottomMargin);
         }];
         
         [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.top.equalTo(self.addressLabel.mas_top).with.offset(-kVerticalMargin);
-            make.bottom.equalTo(self.timeLabel.mas_bottom).with.offset(kVerticalMargin);
+            make.top.equalTo(self.addressLabel.mas_top).with.offset(-kTopMargin);
+            make.bottom.equalTo(self.timeLabel.mas_bottom).with.offset(kBottomMargin);
         }];
     }
     
@@ -124,7 +145,7 @@
     });
     
     if (trip) {
-        NSInteger minutes = [trip.endDate timeIntervalSinceDate:trip.startDate] / 60;
+        NSInteger minutes = [trip.endDate timeIntervalSinceDate:trip.startDate] / 60 / 60;
         
         self.addressLabel.text = [NSString stringWithFormat:@"%@ > %@", trip.startAddress, trip.endAddress];
         self.timeLabel.text = [NSString stringWithFormat:@"%@-%@ (%lumin)",

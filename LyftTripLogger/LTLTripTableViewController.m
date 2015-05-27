@@ -20,12 +20,17 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    [self.navigationController.navigationBar setBackgroundImage:[UIImage imageNamed:@"navbar"] forBarMetrics:UIBarMetricsDefault];
+    
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44;
+    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     
     [LTLTripTableViewCell registerWithTableView:self.tableView];
     
     self.fetchedResultsController = [LTLTrip allSortedTripsController];
+    
+    self.title = nil;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -33,10 +38,5 @@
     cell.trip = [self.fetchedResultsController objectAtIndexPath:indexPath];
     return cell;
 }
-
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-//    LTLTrip *trip = [self.fetchedResultsController objectAtIndexPath:indexPath];
-//    return [LTLTripTableViewCell heightWithTrip:trip inTableView:tableView];
-//}
 
 @end
