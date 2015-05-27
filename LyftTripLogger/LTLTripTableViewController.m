@@ -32,9 +32,9 @@
     titleImageView.contentMode = UIViewContentModeScaleAspectFill;
     self.navigationItem.titleView = titleImageView;
     
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     self.tableView.estimatedRowHeight = 44;
-    [self.tableView setSeparatorInset:UIEdgeInsetsZero];
     
     [LTLTripTableViewCell registerWithTableView:self.tableView];
     
