@@ -20,6 +20,8 @@
 		4BF6D98F1B15368900BC4146 /* LTLTripTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4BF6D98E1B15368900BC4146 /* LTLTripTableViewCell.m */; };
 		6EB2D5FCC0F7E8D3AF285148 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0ED4B94C4C7301622AE83511 /* libPods.a */; };
 		9AF24DA71B156EEE00DC2797 /* UIColor+LTL.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF24DA61B156EEE00DC2797 /* UIColor+LTL.m */; };
+		9AF24DA91B156FCF00DC2797 /* LTLConstants.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF24DA81B156FCF00DC2797 /* LTLConstants.m */; };
+		9AF24DAD1B15702800DC2797 /* LTLTripLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AF24DAC1B15702800DC2797 /* LTLTripLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +59,10 @@
 		6C981C0F549B783B5E41E260 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		9AF24DA51B156EEE00DC2797 /* UIColor+LTL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+LTL.h"; sourceTree = "<group>"; };
 		9AF24DA61B156EEE00DC2797 /* UIColor+LTL.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+LTL.m"; sourceTree = "<group>"; };
+		9AF24DA81B156FCF00DC2797 /* LTLConstants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLConstants.m; sourceTree = "<group>"; };
+		9AF24DAA1B156FDA00DC2797 /* LTLConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LTLConstants.h; sourceTree = "<group>"; };
+		9AF24DAB1B15702800DC2797 /* LTLTripLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LTLTripLogger.h; sourceTree = "<group>"; };
+		9AF24DAC1B15702800DC2797 /* LTLTripLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LTLTripLogger.m; sourceTree = "<group>"; };
 		C0E6CA4F0DA75B0818822F0B /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -113,6 +119,8 @@
 			children = (
 				4BF6D95E1B15345E00BC4146 /* AppDelegate.h */,
 				4BF6D95F1B15345E00BC4146 /* AppDelegate.m */,
+				9AF24DAB1B15702800DC2797 /* LTLTripLogger.h */,
+				9AF24DAC1B15702800DC2797 /* LTLTripLogger.m */,
 				4BF6D9871B15365D00BC4146 /* CoreDataTableViewController.h */,
 				4BF6D9881B15365D00BC4146 /* CoreDataTableViewController.m */,
 				4BF6D98A1B15367B00BC4146 /* LTLTripTableViewController.h */,
@@ -121,6 +129,8 @@
 				4BF6D98E1B15368900BC4146 /* LTLTripTableViewCell.m */,
 				9AF24DA51B156EEE00DC2797 /* UIColor+LTL.h */,
 				9AF24DA61B156EEE00DC2797 /* UIColor+LTL.m */,
+				9AF24DAA1B156FDA00DC2797 /* LTLConstants.h */,
+				9AF24DA81B156FCF00DC2797 /* LTLConstants.m */,
 				4BF6D9641B15345E00BC4146 /* Main.storyboard */,
 				4BF6D9671B15345E00BC4146 /* Images.xcassets */,
 				4BF6D9691B15345E00BC4146 /* LaunchScreen.xib */,
@@ -310,8 +320,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AF24DA91B156FCF00DC2797 /* LTLConstants.m in Sources */,
 				4BF6D98F1B15368900BC4146 /* LTLTripTableViewCell.m in Sources */,
 				4BF6D9821B15358400BC4146 /* LyftTripLogger.xcdatamodeld in Sources */,
+				9AF24DAD1B15702800DC2797 /* LTLTripLogger.m in Sources */,
 				4BF6D9601B15345E00BC4146 /* AppDelegate.m in Sources */,
 				4BF6D95D1B15345E00BC4146 /* main.m in Sources */,
 				9AF24DA71B156EEE00DC2797 /* UIColor+LTL.m in Sources */,

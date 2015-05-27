@@ -8,7 +8,9 @@
 
 #import "LTLTripTableViewController.h"
 
+#import "LTLConstants.h"
 #import "LTLTrip.h"
+#import "LTLTripLogger.h"
 #import "LTLTripTableViewCell.h"
 #import <Masonry/Masonry.h>
 #import "UIColor+LTL.h"
@@ -58,6 +60,10 @@
     
     self.loggingSwitch = [UISwitch new];
     self.loggingSwitch.onTintColor = [UIColor ltlAccentColor];
+    self.loggingSwitch.on = [LTLTripLogger sharedLogger].isLoggingEnabled;
+    [self.loggingSwitch addTarget:self
+                           action:@selector(loggingSwitchChanged:)
+                 forControlEvents:UIControlEventValueChanged];
     [self.loggingSwitchView addSubview:self.loggingSwitch];
     
     UIView *separatorView = [UIView new];
@@ -86,6 +92,10 @@
         make.height.equalTo(@(kSeparatorHeight));
         make.bottom.equalTo(self.loggingSwitchView.mas_bottom);
     }];
+}
+
+- (void)loggingSwitchChanged:(UISwitch *)loggingSwitch {
+    [LTLTripLogger sharedLogger].isLoggingEnabled = loggingSwitch.on;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
