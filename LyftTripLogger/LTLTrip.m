@@ -17,7 +17,11 @@
 @dynamic endAddress;
 
 + (NSFetchedResultsController *)allSortedTripsController {
-    return [self MR_fetchAllGroupedBy:nil withPredicate:[NSPredicate predicateWithValue:YES] sortedBy:@"startDate" ascending:YES];
+    NSPredicate *predicate = [NSPredicate predicateWithFormat:@"startDate != nil AND endDate != nil"];
+    return [self MR_fetchAllGroupedBy:nil
+                        withPredicate:predicate
+                             sortedBy:@"startDate"
+                            ascending:YES];
 }
 
 @end

@@ -8,18 +8,23 @@
 
 #import "LTLTripLogger.h"
 
+#import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <CoreLocation/CoreLocation.h>
 #import "LTLConstants.h"
 #import "LTLTrip.h"
+#import <MagicalRecord/MagicalRecord.h>
 
 @interface LTLTripLogger () <CLLocationManagerDelegate>
 
 @property (nonatomic, strong) CLLocationManager *locationManager;
 @property (nonatomic) BOOL isCurrentlyTracking;
+@property (nonatomic, strong) NSTimer *stationaryTimer;
 
 @end
 
 @implementation LTLTripLogger
+
+static NSString * const LTLTripStationaryTimerLocationKey = @"LTLTripStationaryTimerLocationKey";
 
 + (instancetype)sharedLogger {
     static LTLTripLogger *sharedLogger = nil;
@@ -65,6 +70,37 @@
     [self.locationManager stopUpdatingLocation];
 }
 
+- (void)stationaryTimerDidFire:(NSTimer *)timer {
+    if (self.isCurrentlyTracking) {
+        
+        NSLog(@"STOPPING TRACKING");
+        
+        self.isCurrentlyTracking = NO;
+        CLLocation *location = timer.userInfo[LTLTripStationaryTimerLocationKey];
+        [[CLGeocoder new] reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+            CLPlacemark *placemark = [placemarks firstObject];
+            [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                NSPredicate *predicate = [NSPredicate predicateWithFormat:@"endDate == nil"];
+                LTLTrip *trip = [LTLTrip MR_findFirstWithPredicate:predicate inContext:localContext];
+                trip.endDate = location.timestamp;
+                trip.endAddress = [NSString stringWithFormat:@"%@ %@", placemark.subThoroughfare, placemark.thoroughfare];
+            }];
+        }];
+    }
+}
+
+- (void)startStationaryTimerWithLastLocation:(CLLocation *)location {
+    const NSTimeInterval kStationaryTimeInterval = 2;
+    [self.stationaryTimer invalidate];
+    self.stationaryTimer = [NSTimer scheduledTimerWithTimeInterval:kStationaryTimeInterval
+                                                            target:self
+                                                          selector:@selector(stationaryTimerDidFire:)
+                                                          userInfo:@{LTLTripStationaryTimerLocationKey: location}
+                                                           repeats:NO];
+    
+    NSLog(@"STARTING STATIONARY TIMER: %@", location);
+}
+
 #pragma mark - CLLocationManagerDelegate Methods
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateLocations:(NSArray *)locations {
@@ -73,12 +109,24 @@
     
     CLLocation *location = [locations lastObject];
     if (self.isCurrentlyTracking) {
-        
+        [self startStationaryTimerWithLastLocation:location];
     } else {
         CLLocationSpeed speed = [location speed];
         if (speed > kMinSpeed) {
+            
+            NSLog(@"STARTING TRACKING: %@", location);
+            
             self.isCurrentlyTracking = YES;
             
+            [[CLGeocoder new] reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+                CLPlacemark *placemark = [placemarks firstObject];
+                [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                    LTLTrip *trip = [LTLTrip MR_createInContext:localContext];
+                    trip.startDate = location.timestamp;
+                    trip.startAddress = [NSString stringWithFormat:@"%@ %@", placemark.subThoroughfare, placemark.thoroughfare];
+                }];
+            }];
+            [self startStationaryTimerWithLastLocation:location];
         }
     }
 }

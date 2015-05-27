@@ -13,5 +13,7 @@
 @property (nonatomic) BOOL isLoggingEnabled;
 
 + (instancetype)sharedLogger;
+- (void)startLogging;
+- (void)stopLogging;
 
 @end

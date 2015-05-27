@@ -11,6 +11,7 @@
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 #import <MagicalRecord/MagicalRecord.h>
 #import "LTLTrip.h"
+#import "LTLTripLogger.h"
 
 @interface AppDelegate ()
 
@@ -23,6 +24,7 @@
     [MagicalRecord setupAutoMigratingCoreDataStack];
     [self clearTestTrips];
     [self createTestTrips];
+    [[LTLTripLogger sharedLogger] startLogging];
     return YES;
 }
 
