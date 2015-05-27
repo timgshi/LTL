@@ -8,6 +8,7 @@
 
 #import "LTLTrip.h"
 
+#import <CoreLocation/CoreLocation.h>
 
 @implementation LTLTrip
 
@@ -21,7 +22,18 @@
     return [self MR_fetchAllGroupedBy:nil
                         withPredicate:predicate
                              sortedBy:@"startDate"
-                            ascending:YES];
+                            ascending:NO];
+}
+
+- (NSString *)addressStringFromPlacemark:(CLPlacemark *)placemark {
+    NSString *addressString = @"";
+    if (placemark.subThoroughfare) {
+        addressString = [NSString stringWithFormat:@"%@ ", placemark.subThoroughfare];
+    }
+    if (placemark.thoroughfare) {
+        addressString = [addressString stringByAppendingString:placemark.thoroughfare];
+    }
+    return addressString;
 }
 
 @end

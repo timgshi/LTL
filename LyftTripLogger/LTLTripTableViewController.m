@@ -50,7 +50,7 @@
     const CGFloat kHorizontalMargin = 15;
     const CGFloat kSeparatorHeight = 1;
     
-    self.loggingSwitchView = [UIView new];
+    self.loggingSwitchView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), kLoggingSwitchViewHeight)];
     self.loggingSwitchView.backgroundColor = [UIColor whiteColor];
     
     self.loggingSwitchLabel = [UILabel new];
@@ -71,11 +71,6 @@
     [self.loggingSwitchView addSubview:separatorView];
 
     self.tableView.tableHeaderView = self.loggingSwitchView;
-    
-    [self.loggingSwitchView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.height.equalTo(@(kLoggingSwitchViewHeight));
-        make.width.equalTo(self.tableView.mas_width);
-    }];
     
     [self.loggingSwitchLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.loggingSwitchView.mas_left).with.offset(kHorizontalMargin);

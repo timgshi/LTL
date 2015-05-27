@@ -9,3 +9,4 @@
 #import "LTLConstants.h"
 
 NSString * const LTLTripLoggingKey = @"LTLTripLoggingKey";
+NSString * const LTLTripCurrentlyTrackingKey = @"LTLTripCurrentlyTrackingKey";

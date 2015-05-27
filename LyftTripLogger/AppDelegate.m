@@ -22,8 +22,8 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [MagicalRecord setupAutoMigratingCoreDataStack];
-    [self clearTestTrips];
-    [self createTestTrips];
+//    [self clearTestTrips];
+//    [self createTestTrips];
     [[LTLTripLogger sharedLogger] startLogging];
     return YES;
 }

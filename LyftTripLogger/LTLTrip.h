@@ -10,6 +10,7 @@
 #import <CoreData/CoreData.h>
 #import <MagicalRecord/CoreData+MagicalRecord.h>
 
+@class CLPlacemark;
 
 @interface LTLTrip : NSManagedObject
 
@@ -19,5 +20,6 @@
 @property (nonatomic, retain) NSString * endAddress;
 
 + (NSFetchedResultsController *)allSortedTripsController;
+- (NSString *)addressStringFromPlacemark:(CLPlacemark *)placemark;
 
 @end

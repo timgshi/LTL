@@ -137,21 +137,22 @@
     _trip = trip;
     
     static NSDateFormatter *dateFormatter = nil;
+    static NSDateComponentsFormatter *dateComponentsFormatter = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         dateFormatter = [NSDateFormatter new];
         [dateFormatter setDateStyle:NSDateFormatterNoStyle];
         [dateFormatter setTimeStyle:NSDateFormatterShortStyle];
+        dateComponentsFormatter = [NSDateComponentsFormatter new];
+        dateComponentsFormatter.unitsStyle = NSDateComponentsFormatterUnitsStyleFull;
     });
     
     if (trip) {
-        NSInteger minutes = [trip.endDate timeIntervalSinceDate:trip.startDate] / 60 / 60;
-        
         self.addressLabel.text = [NSString stringWithFormat:@"%@ > %@", trip.startAddress, trip.endAddress];
-        self.timeLabel.text = [NSString stringWithFormat:@"%@-%@ (%lumin)",
+        self.timeLabel.text = [NSString stringWithFormat:@"%@-%@ (%@)",
                                [dateFormatter stringFromDate:trip.startDate],
                                [dateFormatter stringFromDate:trip.endDate],
-                               minutes];
+                               [dateComponentsFormatter stringFromTimeInterval:[trip.endDate timeIntervalSinceDate:trip.startDate]]];
     }
 }
 
