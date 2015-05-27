@@ -11,6 +11,7 @@
 #import "LTLTrip.h"
 #import "LTLTripTableViewCell.h"
 #import <Masonry/Masonry.h>
+#import "UIColor+LTL.h"
 
 @interface LTLTripTableViewController ()
 
@@ -43,7 +44,7 @@
 - (void)setupLoggingSwitch {
     
     const CGFloat kLoggingSwitchLabelFontSize = 20;
-    const CGFloat kLoggingSwitchViewHeight = 80;
+    const CGFloat kLoggingSwitchViewHeight = 70;
     const CGFloat kHorizontalMargin = 15;
     const CGFloat kSeparatorHeight = 1;
     
@@ -56,6 +57,7 @@
     [self.loggingSwitchView addSubview:self.loggingSwitchLabel];
     
     self.loggingSwitch = [UISwitch new];
+    self.loggingSwitch.onTintColor = [UIColor ltlAccentColor];
     [self.loggingSwitchView addSubview:self.loggingSwitch];
     
     UIView *separatorView = [UIView new];
