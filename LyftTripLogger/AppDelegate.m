@@ -22,29 +22,12 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [MagicalRecord setupAutoMigratingCoreDataStack];
-//    [self clearTestTrips];
-//    [self createTestTrips];
     [[LTLTripLogger sharedLogger] startLogging];
     return YES;
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application {
     [MagicalRecord cleanUp];
-}
-
-- (void)clearTestTrips {
-    NSPredicate *predicate = [NSPredicate predicateWithValue:YES];
-    [LTLTrip MR_deleteAllMatchingPredicate:predicate];
-}
-
-- (void)createTestTrips {
-    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-        LTLTrip *trip = [LTLTrip MR_createInContext:localContext];
-        trip.startDate = [[NSDate date] dateByAddingTimeInterval:-60*60*5];
-        trip.endDate = [NSDate date];
-        trip.startAddress = @"Address 1";
-        trip.endAddress = @"Address 2";
-    }];
 }
 
 @end

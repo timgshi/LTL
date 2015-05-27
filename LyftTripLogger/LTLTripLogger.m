@@ -46,7 +46,9 @@ static NSString * const LTLTripStationaryTimerLocationKey = @"LTLTripStationaryT
 - (void)setIsLoggingEnabled:(BOOL)isLoggingEnabled {
     [[NSUserDefaults standardUserDefaults] setBool:isLoggingEnabled forKey:LTLTripLoggingKey];
     [[NSUserDefaults standardUserDefaults] synchronize];
-    if (!isLoggingEnabled) {
+    if (isLoggingEnabled) {
+        [self startLogging];
+    } else {
         [self stopLogging];
     }
 }
@@ -79,11 +81,21 @@ static NSString * const LTLTripStationaryTimerLocationKey = @"LTLTripStationaryT
 - (void)stopLogging {
     [self.locationManager stopUpdatingLocation];
     [self.locationManager stopMonitoringSignificantLocationChanges];
+    if (self.isCurrentlyTracking) {
+        self.isCurrentlyTracking = NO;
+        [self.stationaryTimer invalidate];
+        [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+            NSPredicate *predicate = [NSPredicate predicateWithFormat:@"endDate == nil"];
+            LTLTrip *trip = [LTLTrip MR_findFirstWithPredicate:predicate inContext:localContext];
+            if (trip) {
+                [trip MR_deleteInContext:localContext];
+            }
+        }];
+    }
 }
 
 - (void)stationaryTimerDidFire:(NSTimer *)timer {
     if (self.isCurrentlyTracking) {
-        
         self.isCurrentlyTracking = NO;
         CLLocation *location = timer.userInfo[LTLTripStationaryTimerLocationKey];
         [[CLGeocoder new] reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
@@ -101,7 +113,7 @@ static NSString * const LTLTripStationaryTimerLocationKey = @"LTLTripStationaryT
 }
 
 - (void)startStationaryTimerWithLastLocation:(CLLocation *)location {
-    const NSTimeInterval kStationaryTimeInterval = 2;
+    const NSTimeInterval kStationaryTimeInterval = 60;
     [self.stationaryTimer invalidate];
     self.stationaryTimer = [NSTimer scheduledTimerWithTimeInterval:kStationaryTimeInterval
                                                             target:self
@@ -117,24 +129,25 @@ static NSString * const LTLTripStationaryTimerLocationKey = @"LTLTripStationaryT
     const CLLocationSpeed kMinSpeed = 4.4704; // 10 MPH
     
     CLLocation *location = [locations lastObject];
-    if (self.isCurrentlyTracking) {
-        [self startStationaryTimerWithLastLocation:location];
-    } else {
-        CLLocationSpeed speed = [location speed];
-        if (speed > kMinSpeed) {
-            
-            
-            self.isCurrentlyTracking = YES;
-            
-            [[CLGeocoder new] reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
-                CLPlacemark *placemark = [placemarks firstObject];
-                [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
-                    LTLTrip *trip = [LTLTrip MR_createInContext:localContext];
-                    trip.startDate = location.timestamp;
-                    trip.startAddress = [trip addressStringFromPlacemark:placemark];
-                }];
-            }];
+    if (self.isLoggingEnabled) {
+        if (self.isCurrentlyTracking) {
             [self startStationaryTimerWithLastLocation:location];
+        } else {
+            CLLocationSpeed speed = [location speed];
+            if (speed > kMinSpeed) {
+                
+                self.isCurrentlyTracking = YES;
+                
+                [[CLGeocoder new] reverseGeocodeLocation:location completionHandler:^(NSArray *placemarks, NSError *error) {
+                    CLPlacemark *placemark = [placemarks firstObject];
+                    [MagicalRecord saveWithBlock:^(NSManagedObjectContext *localContext) {
+                        LTLTrip *trip = [LTLTrip MR_createInContext:localContext];
+                        trip.startDate = location.timestamp;
+                        trip.startAddress = [trip addressStringFromPlacemark:placemark];
+                    }];
+                }];
+                [self startStationaryTimerWithLastLocation:location];
+            }
         }
     }
 }
